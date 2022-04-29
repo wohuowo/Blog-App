@@ -1,51 +1,52 @@
 <template>
   <div class="Top-news">
-    <section class="md:h-full flex items-center text-gray-600">
+    <section class="md:h-full flex items-center">
       <div class="container px-5 py-24 mx-auto">
         <div class="text-center md-text-left mb-12">
-          <h3 class="text-4xl md:text-6xl text-white mb-1 font-semibold">
+          <h3 class="secondary-title text-2xl md:text-4xl mb-1 font-semibold">
             {{ head }}
           </h3>
         </div>
-        <div>
-          <div class="flex flex-wrap -m-4">
-            <div class="p-4 sm:w-1/2 lg:w-1/3">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+          <div v-for="info in cardInfo.slice(0, 3)" :key="info.id">
+            <div class="p-4">
               <div
                 class="
                   h-full
-                  border-2 border-gray-200 border-opacity-60
-                  rounded-lg
+                  border-opacity-30
+                  rounded-none
                   overflow-hidden
+                  shadow-xl
                 "
               >
                 <img
-                  src="image"
+                  :src="`../assets/${info.pic}`"
+                  :alt="info.alt"
                   class="md:h-48 lg:h-72 w-full object-cover object-center"
-                  alt="alt"
                 />
                 <div
                   class="
                     p-6
-                    hover:bg-indigo-700 hover-text-white
+                    hover:bg-hov hover:text-white
                     transition
                     duration-300
                     ease-in
                   "
                 >
-                  <h2 class="text-base font-medium text-indigo-300 mb-1">
-                    {{ info.time }}
-                  </h2>
-                  <h1 class="text-2xl font-semibold mb-3">
+                  <h1 class="text-xl font-medium mb-3">
                     {{ info.headline }}
                   </h1>
-                  <p class="leading-relaxed mb-3">
-                    {{ info.preview }}
-                  </p>
+                  <!-- <p class="leading-relaxed mb-3">
+                  {{ info.preview }}
+                </p> -->
+                  <h2 class="text-base font-normal text-[#CCC9DC] mb-1">
+                    {{ info.time }}
+                  </h2>
                   <div class="flex items-center flex-wrap">
                     <a
                       href="#"
                       class="
-                        text-indigo-300
+                        text-[#CCC9DC]
                         inline-flex
                         items-center
                         md:mb-2
@@ -130,15 +131,22 @@
   </div>
 </template>
 <script>
+import cardInfo from "../data/cardInfo";
+
 export default {
   name: "Topstories",
   data: function () {
     return {
+      methods: {
+        addPicture: function (imagePath) {
+          return require("../assets/images/" + imagePath);
+        },
+      },
       head: "Top Stories",
+      cardInfo: cardInfo,
+      info: null,
     };
   },
-  props: ["image", "alt"],
+  props: [],
 };
 </script>
-<style>
-</style>

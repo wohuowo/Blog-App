@@ -9,14 +9,16 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        body: "#04080F",
-        "selected-text": "#62B6CB",
-        theme: "#1B2A41",
-        nav: "#404053",
-        secondary: "#CCC9DC",
+        body: "#FBFBFF", //ghost white
+        nav: "#D3D2C7", //timberwolf
+        "selected-text": "#CE4760", //brick red
+        theme: "#0353A4", //USAFA blue
+        secondary: "#335C67", //deep space sparkle
         badge: "#233754",
         "input-border": "#0C1821",
-        input: "#324A5F",
+        input: "#D8E2DC",
+        tc: "#070707", //rich black #040411
+        hov: "#69747C",
       },
       fontFamily: {
         poppins: ["'Poppins'", "san-serif"],

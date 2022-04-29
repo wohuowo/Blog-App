@@ -6,15 +6,11 @@ export default {
       title: "Wohu",
     };
   },
-  async mounted() {
-    const res = await fetch("./data/db.json");
-    const data = await res.json();
-  },
 };
 </script>
 <template>
   <div id="nav">
-    <header class="py-5">
+    <header class="py-5 bg-nav">
       <div
         class="
           container
@@ -22,19 +18,23 @@ export default {
           justify-between
           item-center
           mx-auto
-          px-8
-          md:px-14
-          lg:px-24
+          px-6
+          md:px-10
+          lg:px-20
           w-full
         "
       >
-        <div class="blog-name text-lg font-bold">{{ title }}</div>
+        <div class="blog-name text-[30px] font-black text-theme">
+          {{ title }}
+        </div>
         <div class="hidden md:flex space-x-14 items-center">
           <router-link to="/">Home </router-link>
           <router-link to="/articles">Articles </router-link>
           <router-link to="/about"> About </router-link>
           <router-link to="/contact">
-            <button class="px-6 py-2 bg-theme font-bold">Contact Me</button>
+            <button class="px-6 py-2 bg-theme font-bold rounded-lg">
+              Contact Me
+            </button>
           </router-link>
         </div>
       </div>
@@ -64,7 +64,7 @@ export default {
 .footer .social a {
   font-size: 24px;
   color: inherit;
-  border: 1px solid #ccc;
+  border: 1px solid #233754;
   width: 40px;
   height: 40px;
   line-height: 38px;
@@ -89,7 +89,7 @@ export default {
 .footer ul li a {
   color: inherit;
   text-decoration: none;
-  opacity: 0.8;
+  opacity: 0.9;
 }
 .footer ul li {
   display: inline-block;
